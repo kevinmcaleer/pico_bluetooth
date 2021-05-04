@@ -41,6 +41,7 @@ while True and command !='quit':
         help()
     elif command != 'quit':
         uart.write(command)
+        print(command)
         sleep(0.1)
         response = bytes()
         
