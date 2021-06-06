@@ -5,10 +5,10 @@ from time import sleep
 import uos
 
 # setup the UART
-id = 0
-rx = Pin(1)
-tx = Pin(0)
-baudrate=9600
+id = 1
+rx = Pin(5)
+tx = Pin(4)
+baudrate=9600 # default is 9600
 
 # create the UART
 uart = UART(id=id, baudrate=baudrate,tx=tx, rx=rx)
@@ -48,7 +48,8 @@ while True and command !='quit':
         if uart.any() > 0:
             response = uart.readline()
             print("reading data")
-        output = "".join(["'",str(command),"'","response:",str(response.decode('utf-8'))])
+        # output = "".join(["'",str(command),"'","response:",str(response.decode('utf-8'))])
+        output = response.decode('utf-8')
         print(output)
     elif command == 'quit':
         print("-"*50)
