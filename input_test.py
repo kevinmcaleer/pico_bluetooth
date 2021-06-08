@@ -49,7 +49,10 @@ while True and command !='quit':
             response = uart.readline()
             print("reading data")
         # output = "".join(["'",str(command),"'","response:",str(response.decode('utf-8'))])
-        output = response.decode('utf-8')
+        try:
+            output = str(response.decode('utf-8'))
+        except:
+            print("weird response")
         print(output)
     elif command == 'quit':
         print("-"*50)
